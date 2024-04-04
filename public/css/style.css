@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,100;1,300&family=Red+Hat+Display:wght@700&display=swap');
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #020F16;
+}
+
+
+
+
+.icon {
+    color: red;
+}
+
+.icon:hover {
+    color: maroon;
+}
+
+/* body {
+    background-color: #e1e1e1;
+} */
+
+abbr {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+abbr:hover {
+    cursor: pointer;
+}
+
+abbr:hover::after {
+    position: absolute;
+    left: 100%;
+    display: block;
+    padding: 10px;
+    background: #FFDF00;
+    color: black;
+    content: attr(title);
+    width: 150px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.card-header {
+    background-color: rgb(233, 199, 155);
+    padding-left: 15px;
+    padding-right: 15px;
+    text-transform: capitalize;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.f-bold {
+    font-weight: bold;
+}
+
+.box {
+    padding-bottom: 500px;
+}
+
+#progress {
+
+    bottom: 22px;
+    right: 22px;
+    border-radius: 50%;
+    margin: 13px 0 0 0;
+    padding: 0 14px;
+    cursor: pointer;
+}
+
+#creator,
+#progress {
+    border: 0;
+    border-radius: 0;
+    background: #728986;
+    outline: none;
+    /* color: #fff; */
+    color: #E67F22;;
+    transition: background .15s ease;
+
+}
+
+.dot {
+    height: 70px;
+    width: 70px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.App {
+    text-align: center;
+    color: red;
+}
+
+.card-head2 {
+    background-color: #6b2626;
+    color: #222;
+    font-weight: 700;
+    padding: 5px 15px;
+    font-size: 13px;
+}
+
+.circular-progress {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin-left: 13px;
+    margin-right: 10px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background: conic-gradient(rgb(105, 105, 195) 360deg, rgb(202, 220, 255) 360deg);
+}
+
+.circular-progress::before:hover {
+    background-color: conic-gradient(rgb(130, 130, 243) 360deg);
+}
+
+.circular-progress:before {
+    content: "";
+    position: absolute;
+    height: 84%;
+    width: 84%;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.value-container {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    color: #9a5281;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.habit-days {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-here {
+    border: 0px;
+    border-bottom: 1px solid #E67F22;
+    border-radius: 0%;
+    font-size: 24px;
+    padding-left: 5px;
+}

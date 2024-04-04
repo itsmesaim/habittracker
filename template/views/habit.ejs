@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="https://example.com/image.svg">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href=""> -->
+    <link rel="icon" type="image/png" href="/public/favicon.ico">
+
+    <title>Habit tracker</title>
+</head>
+
+<body">
+
+    <!-- Heading -->
+    <div style="margin-top: 40px ;">
+        <h1 class="text-center" style="color: #222; font-weight: 700; font-size: 3rem;">
+            <img src="/public/images/1.jpg" alt="cross" width="300" height="300"
+                class=" rounded-circle me-3">
+                <!-- Habit Tracker -->
+        </h1>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 ">
+                <!-- Add Habit Section -->
+                <div class="modal-dialog modal-lg shadow-sm border-0" style="margin-bottom: 20px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add a Habit to track!</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/habit" method="POST">
+                                <label for="habit-name" class="col-form-label f-bold">Habit Name</label>
+                                <input type="text" class="form-control input-here shadow-none" id="habit-name"
+                                    name="content" placeholder="Enter here..." autocomplete="off">
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Add Habit </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 mb-5">
+
+            <% habit.forEach(habits=> {
+                let tzoffset = (new Date()).getTimezoneOffset() * 60000, found=false, status='';
+                var today = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 10);
+                habits.dates.find(function (item, index) {
+                if(item.date === today){
+                found = true;
+                status = item.complete;
+                }
+                });
+                %>
+                <div class="col-md-8 ">
+                    <div class='shadow-sm rounded  mt-3 p-4 bg-white '>
+                        <div>
+                            <span class="card-header mt-2 rounded">
+                                <%= habits.content %>
+                            </span>
+                            <!-- Date  -->
+                            <span class="card-head2 mt-3 rounded  ms-4"><i>
+                                    Weekly
+                                </i> </span>
+                        </div>
+
+                        <!-- Delete Habit -->
+                        <div class='float-end shadow-sm me-2 justify-content-center' style="
+                        margin-top: -30px;
+                    ">
+                            <a href="/<%= habits._id %>" class=' btn' id="button"><i
+                                    class="bi bi-archive-fill icon"></i>
+                            </a>
+                        </div>
+                        <div class="col-md-10 justify-content-center habit-days mt-3 "
+                        style="margin-left: auto; margin-right: auto; width: 100%; padding-top: 30px;">
+                            <% days.forEach(day=> { let found = false, status = '';
+                                habits.dates.find(function (item, index) {
+                                if(item.date === day.date)
+                                {
+                                found = true;
+                                status = item.complete;
+                                }
+                                });
+                                %>
+
+                                <div>
+
+                                    <table class="table table-bordered" >
+
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="circular-progress">
+
+                                                        <div class="value-container">
+                                                            <%= day.day %> <br>
+                                                                <span>
+                                                                    <%= day.date.slice(-2) %>
+                                                                </span>
+                                                        </div>
+
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="pb-3" style="text-align: center;">
+                                                        <a
+                                                            href="habitStatus/?id=<%= habits._id %>&date=<%= day.date %>">
+                                                            <% if(found && status==='yes' ){ %>
+                                                                <abbr
+                                                        title="Click to Undone :(">
+                                                        <i class="fa-solid fa-circle-check fa-2x"
+                                                                    style="color: green;"></i>
+                                                                </abbr>
+                                                                <% } else if(found && status==='no' ){ %>
+                                                                    
+                                                                <abbr
+                                                                title="Click for Default Value"><i class="fa-sharp fa-solid fa-circle-xmark fa-2x"
+                                                                        style="color: red;"></i></abbr>
+                                                                    <% } else { %>
+
+                                                                <abbr
+                                                                title="Click to mark Done!">
+                                                                        <i class="fa-solid fa-circle-minus fa-2x"></i>
+                                                                        <% } %>
+                                                        </a>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                                <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+    <!-- FontAwesome Icon Script -->
+    <script src="https://kit.fontawesome.com/d5635d350d.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts -->
+    <script>
+        $('[data-toggle="tooltip"]').tooltip({ 'placement': 'bottom' });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    </body>
+
+</html>
+
