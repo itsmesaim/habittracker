@@ -57,7 +57,7 @@ router.post('/habit', async (req, resp) => {
             var today = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 10);
             dates.find(function (item, index) {
                 if (item.date === today) {
-                    console.log("Habit Already inserted in Database")
+                    console.log("Habit Successfully inserted in Database")
 
                     resp.redirect('back');
                 }
