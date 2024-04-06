@@ -104,8 +104,8 @@ abbr:hover::after {
 }
 
 .card-head2 {
-    background-color: #6b2626;
-    color: #E67F22;
+    background-color: #E67F22;
+    color: #ffffff;
     font-weight: 700;
     padding: 5px 15px;
     font-size: 13px;
