@@ -23,9 +23,7 @@
     <!-- Heading -->
     <div style="margin-top: 40px ;">
         <h1 class="text-center" style="color: #222; font-weight: 700; font-size: 3rem;">
-            <img src="/public/images/1.jpg" alt="cross" width="300" height="300"
-                class=" rounded-circle me-3">
-                <!-- Habit Tracker -->
+            <img src="/public/images/logo.jpg" alt="cross" width="300" height="300" class=" rounded-circle me-3">
         </h1>
     </div>
 
@@ -86,7 +84,7 @@
                             </a>
                         </div>
                         <div class="col-md-10 justify-content-center habit-days mt-3 "
-                        style="margin-left: auto; margin-right: auto; width: 100%; padding-top: 30px;">
+                            style="margin-left: auto; margin-right: auto; width: 100%; padding-top: 30px;">
                             <% days.forEach(day=> { let found = false, status = '';
                                 habits.dates.find(function (item, index) {
                                 if(item.date === day.date)
@@ -99,7 +97,7 @@
 
                                 <div>
 
-                                    <table class="table table-bordered" >
+                                    <table class="table table-bordered">
 
                                         <thead>
                                             <tr>
@@ -121,26 +119,23 @@
                                         <tbody>
                                             <tr>
                                                 <td class="pb-3" style="text-align: center;">
-                                                        <a
-                                                            href="habitStatus/?id=<%= habits._id %>&date=<%= day.date %>">
-                                                            <% if(found && status==='yes' ){ %>
-                                                                <abbr
-                                                        title="Click to Undone :(">
-                                                        <i class="fa-solid fa-circle-check fa-2x"
+                                                    <a href="habitStatus/?id=<%= habits._id %>&date=<%= day.date %>">
+                                                        <% if(found && status==='yes' ){ %>
+                                                            <abbr title="Click to Undone :(">
+                                                                <i class="fa-solid fa-circle-check fa-2x"
                                                                     style="color: green;"></i>
-                                                                </abbr>
-                                                                <% } else if(found && status==='no' ){ %>
-                                                                    
-                                                                <abbr
-                                                                title="Click for Default Value"><i class="fa-sharp fa-solid fa-circle-xmark fa-2x"
-                                                                        style="color: red;"></i></abbr>
-                                                                    <% } else { %>
+                                                            </abbr>
+                                                            <% } else if(found && status==='no' ){ %>
 
-                                                                <abbr
-                                                                title="Click to mark Done!">
+                                                                <abbr title="Click for Default Value"><i
+                                                                        class="fa-sharp fa-solid fa-circle-xmark fa-2x"
+                                                                        style="color: red;"></i></abbr>
+                                                                <% } else { %>
+
+                                                                    <abbr title="Click to mark Done!">
                                                                         <i class="fa-solid fa-circle-minus fa-2x"></i>
                                                                         <% } %>
-                                                        </a>
+                                                    </a>
                                                 </td>
 
                                             </tr>
@@ -171,4 +166,3 @@
     </body>
 
 </html>
-

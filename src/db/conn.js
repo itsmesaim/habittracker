@@ -11,9 +11,3 @@ exports.connectMongoose = () => {
         .then((e) => console.log("Connected to Mongodb => Habit-Tracker"))
         .catch((e) => console.log("Not Connect Mongodb", e));
 }
-
-
-// 72LrqWfakRAnzY75
-
-
-// 5Qbzwpz1bNvLk8Be

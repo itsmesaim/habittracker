@@ -4,24 +4,24 @@ const Habit = require('../model/register')
 
 // Get Habits From Database
 router.get('/', (req, resp) => {
-    
-Habit.find().select('-updatedAt -createdAt -__v').sort({ _id: -1 })
-    .then(habits => {
-        var days = [];
-        days.push(getD(0));
-        days.push(getD(1));
-        days.push(getD(2));
-        days.push(getD(3));
-        days.push(getD(4));
-        days.push(getD(5));
-        days.push(getD(6));
-        resp.render('habit', { habit: habits, days });
-    })
-    .catch(err => {
-        console.log(err);
-    });
 
-   
+    Habit.find().select('-updatedAt -createdAt -__v').sort({ _id: -1 })
+        .then(habits => {
+            var days = [];
+            days.push(getD(0));
+            days.push(getD(1));
+            days.push(getD(2));
+            days.push(getD(3));
+            days.push(getD(4));
+            days.push(getD(5));
+            days.push(getD(6));
+            resp.render('habit', { habit: habits, days });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+
 })
 // Find the Date and Return the string Date
 function getD(n) {
@@ -47,10 +47,10 @@ function getD(n) {
     }
     return { date: newDate, day };
 }
-router.post('/habit',  async(req, resp) => {
+router.post('/habit', async (req, resp) => {
     const { content } = req.body;
     console.log(content)
-    Habit.findOne({ content:content }).then(habit => {
+    Habit.findOne({ content: content }).then(habit => {
         if (habit) {
             // Update Existing Habit Status
             let dates = habit.dates, tzoffset = (new Date()).getTimezoneOffset() * 60000;
@@ -58,7 +58,7 @@ router.post('/habit',  async(req, resp) => {
             dates.find(function (item, index) {
                 if (item.date === today) {
                     console.log("Habit Already inserted in Database")
-                    
+
                     resp.redirect('back');
                 }
                 else {
@@ -78,11 +78,11 @@ router.post('/habit',  async(req, resp) => {
             var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 10);
             dates.push({ date: localISOTime, complete: 'none' });
             const newHabit = new Habit({
-               content,
+                content,
                 dates
             });
 
-           
+
             newHabit
                 .save()
                 .then(habit => {
@@ -91,9 +91,9 @@ router.post('/habit',  async(req, resp) => {
                 })
                 .catch(err => console.log(err));
         }
-         
+
     })
-  
+
 });
 // Habit Status Update per Days
 router.get("/habitStatus", (req, resp) => {

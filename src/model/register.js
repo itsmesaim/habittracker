@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const habitSchema = new Schema(
     {
         content: { type: String, required: true },
-        
+
         dates: [{
             date: String,
             complete: String
