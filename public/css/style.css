@@ -160,3 +160,23 @@ abbr:hover::after {
     font-size: 24px;
     padding-left: 5px;
 }
+
+.footer {
+    height: 50px;
+    background-color: #09CBCB;
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    padding: 10px;
+
+}
+
+
+.footer p {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    color: #002F53;
+    font-size: 20px;
+    
+}
