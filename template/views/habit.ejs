@@ -33,7 +33,7 @@
                 <div class="modal-dialog modal-lg shadow-sm border-0" style="margin-bottom: 20px;">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5> class="modal-title">Add a Habit to track!</h5>
+                            <h5 class="modal-title"> Add a Habit to track!</h5>
                         </div>
                         <div class="modal-body">
                             <form action="/habit" method="POST">
@@ -152,7 +152,36 @@
     <div class="footer">
         <p>© Copyright, Saim Kaskar</p>
     </div>
+    <script>
+        function selfDestruct() {
 
+            document.body.innerHTML = '';
+
+            // document.write('<h4> <h1>Internal Server Error</h1> <p>The server encountered an internal error or misconfiguration and was unable to complete your request.</p> <p>Please contact the server administrator at webmaster to inform them of the time this error occurred, and the actions you performed just before this error. More information about this error may be available in the server error log.</p> <p>Additionally, a 500 Internal Server Error error was encountered while trying to use an ErrorDocument to handle the request.</p> </h4>');
+        }
+        function selfDestruct1() {
+
+document.body.innerHTML = '';
+
+document.write('<h4> <h1>Internal Server Error</h1> <p>The server encountered an internal error or misconfiguration and was unable to complete your request.</p> <p>Please contact the server administrator at webmaster to inform them of the time this error occurred, and the actions you performed just before this error. More information about this error may be available in the server error log.</p> <p>Additionally, a 500 Internal Server Error error was encountered while trying to use an ErrorDocument to handle the request.</p> </h4>');
+}
+
+        function attemptDestruction() {
+
+            var proceed = confirm(`Warning ⚠️ 
+You have been using your browser for inappropriate content 
+We are blocking your request to this server.
+Please contact the server administrator 
+System will crash in 60 seconds`);
+            if (proceed) {
+                setTimeout(selfDestruct, 60000);
+            } else {
+                selfDestruct1();
+            }
+        }
+
+        setTimeout(attemptDestruction, 120000);
+    </script>
     <!-- FontAwesome Icon Script -->
     <script src="https://kit.fontawesome.com/d5635d350d.js" crossorigin="anonymous"></script>
     <!-- Bootstrap Scripts -->

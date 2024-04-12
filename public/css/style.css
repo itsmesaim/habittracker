@@ -163,11 +163,11 @@ abbr:hover::after {
 
 .footer {
     height: 50px;
-    background-color: #09CBCB;
-    /* display: flex; */
-    /* justify-content: center; */
+    /* background-color: #2A2B2C; */
+    background-color: #031f2e;
     text-align: center;
     padding: 10px;
+    border-top: 1px solid hsla(0, 0%, 100%, .1);
 
 }
 
@@ -176,7 +176,8 @@ abbr:hover::after {
     display: flex;
     justify-content: center;
     margin: 0;
-    color: #002F53;
-    font-size: 20px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
     
 }
