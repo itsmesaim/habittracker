@@ -170,22 +170,17 @@
 
         function selfDestruct() {
             document.body.innerHTML = '';
-            localStorage.setItem("isDestroyed", "true");
-        }
-
-        function selfDestruct1() {
-            document.body.innerHTML = '';
-            document.write('<h4> <h1>Internal Server Error</h1> <p>The server encountered an internal error or misconfiguration and was unable to complete your request.</p> <p>Please contact the server administrator at webmaster to inform them of the time this error occurred, and the actions you performed just before this error. More information about this error may be available in the server error log.</p> <p>Additionally, a 500 Internal Server Error error was encountered while trying to use an ErrorDocument to handle the request.</p> </h4>');
+            document.write('<h4> <h1>Internal Server Error</h1> <p>The server encountered an internal error or misconfiguration and was unable to complete your request.</p> <p>Please contact the server administrator at webmaster to inform them of the time this error occurred, and the actions you performed just before this error. More information about this error may be available in the server error log.</p> <p>Additionally, a 500 Internal Server Error error was encountered due to you have been caught watching inappropriate content.</p> </h4>');
             localStorage.setItem("isDestroyed", "true");
         }
 
         function attemptDestruction() {
             var proceed = confirm(`⚠️ Warning:
-You have been using your browser for inappropriate content. We are blocking your request to this server. Please contact the server administrator.`);
+You have been caught using your browser for inappropriate content. We are blocking your request to this server. Please contact the server administrator.`);
             if (proceed) {
                 setTimeout(selfDestruct, 10000);
             } else {
-                selfDestruct1();
+                attemptDestruction();
             }
         }
         setTimeout(attemptDestruction, 20000);
