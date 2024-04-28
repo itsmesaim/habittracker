@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 exports.connectMongoose = () => {
     mongoose.set("strictQuery", false);
 
-    mongoose.connect("mongodb+srv://saimkaskar786:72LrqWfakRAnzY75@habittrackerdb.qlwcdne.mongodb.net/?retryWrites=true&w=majority&appName=HabitTrackerDB")
+    mongoose.connect(process.env.MONGO_URL)
         .then(() => {
             console.log(`Successfully Connected to Mongodb`);
         }).catch((e) => {

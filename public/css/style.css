@@ -179,5 +179,47 @@ abbr:hover::after {
     color: #ffffff;
     font-size: 15px;
     font-weight: 800;
-    
+
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+
+    h1,
+    .modal-title,
+    .card-header,
+    .card-head2 {
+        font-size: 1.5rem;
+        /* Adjust font size */
+    }
+
+    .input-here {
+        font-size: 18px;
+        /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 10px;
+        /* Reduce margin */
+    }
+
+    .modal-content {
+        padding: 10px;
+        /* Less padding inside modal */
+    }
+
+    .btn {
+        padding: 8px 12px;
+        /* Smaller buttons */
+        font-size: 14px;
+        /* Smaller font size for button text */
+    }
+}
+
+/* Improve flexibility of form inputs */
+.input-here {
+    width: 100%;
+    /* Full width */
 }
