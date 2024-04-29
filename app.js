@@ -29,7 +29,7 @@ app.use(express.json())
 
 // Setting up routes
 app.use(router);
-const PORT = process.env.PORT
+const PORT = 3300
 app.listen(PORT, () => {
     console.log(`Server running at port: ${PORT}`);
 })
